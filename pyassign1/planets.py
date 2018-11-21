@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""Foobar.py: Description of what foobar does.
+"""planets.py: 描绘行星运动轨迹的模块。
 
 __author__ = "Xuefeng Wang"
 __pkuid__  = "1800011707"
