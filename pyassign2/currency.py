@@ -151,7 +151,7 @@ def main():
     amount_from = float(input("Please enter the amount of currency to convert:"))
     amount_to = exchange(currency_from, currency_to, amount_from)
     if type(amount_to) == float:
-        print("The amount of currency received in the given exchange is", amount_to, ".")
+        print("The amount of currency received in the given exchange is "+str(amount_to)+".")
         return amount_to
     else:
         print(amount_to)
