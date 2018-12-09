@@ -162,9 +162,12 @@ def main():
     print("There are", num, "ways to pave this wall.")
     for i in alls:
         print(i)
-    choice = turtle.numinput("Visualization", "Enter the sequence number of the paving method you want to display:", 0, minval=0, maxval=num-1)
-    subject = alls[int(choice)]
-    visualization(m, n, subject)
+    if num != 0:
+        choice = turtle.numinput("Visualization", "Enter the sequence number of the paving method you want to display: (0 - "+str(num-1)+")", 0, minval=0, maxval=num-1)
+        subject = alls[int(choice)]
+        visualization(m, n, subject)
+    else:
+        print("No solution can be visualized.")
 
 if __name__ == '__main__':
     main()
