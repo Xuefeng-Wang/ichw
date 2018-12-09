@@ -153,9 +153,9 @@ def visualization(m, n, subject):
     for i in range(n):
         for j in range(m):
             zoom.up()
-            zoom.goto(size*(j+0.4)-f, size*(i+0.34)-g)
+            zoom.goto(size*(j+0.54)-f, size*(i+0.34)-g)
             zoom.down()
-            zoom.write(str(i*m+j), font=("Times New Roman", int(0.24*size)))
+            zoom.write(str(i*m+j), align="center", font=("Times New Roman", int(0.24*size)))
     turtle.done()
                     
 def main():
