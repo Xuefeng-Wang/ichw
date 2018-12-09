@@ -118,14 +118,17 @@ def visualization(m, n, subject):
     zoom.shape("blank")
     flash.pensize(4)
     zoom.color("blue")
+    size = (120000/(m*n))**0.5
+    f = m*size/2
+    g = n*size/2
     
     for partition in subject:
         corner1 = min(partition)
         corner2 = max(partition)
-        x1 = (corner1 % m)*25
-        y1 = (corner1 // m)*25
-        x2 = (1 + corner2 % m)*25
-        y2 = (1 + corner2 // m)*25
+        x1 = (corner1 % m)*size-f
+        y1 = (corner1 // m)*size-g
+        x2 = (1 + corner2 % m)*size-f
+        y2 = (1 + corner2 // m)*size-g
         flash.up()
         flash.goto(x1, y1)
         flash.down()
@@ -134,25 +137,25 @@ def visualization(m, n, subject):
         flash.goto(x1, y2)
         flash.goto(x1, y1)
     
-    for row in range(25, 25*n, 25):
+    for row in range(1, n):
         zoom.up()
-        zoom.goto(0, row)
+        zoom.goto(-f, row*size-g)
         zoom.down()
-        zoom.fd(25*m)
+        zoom.fd(size*m)
     zoom.lt(90)
         
-    for column in range(25, 25*m, 25):
+    for column in range(1, m):
         zoom.up()
-        zoom.goto(column, 0)
+        zoom.goto(column*size-f, -g)
         zoom.down()
-        zoom.fd(25*n)
+        zoom.fd(size*n)
     
     for i in range(n):
         for j in range(m):
             zoom.up()
-            zoom.goto(25*j+11, 25*i+9)
+            zoom.goto(size*(j+0.4)-f, size*(i+0.34)-g)
             zoom.down()
-            zoom.write(str(i*m+j), font=("Times New Roman", 6))
+            zoom.write(str(i*m+j), font=("Times New Roman", int(0.24*size)))
     turtle.done()
                     
 def main():
