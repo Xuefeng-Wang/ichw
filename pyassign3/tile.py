@@ -147,6 +147,12 @@ def visualization(m, n, subject):
         zoom.down()
         zoom.fd(25*n)
     
+    for i in range(n):
+        for j in range(m):
+            zoom.up()
+            zoom.goto(25*j+11, 25*i+9)
+            zoom.down()
+            zoom.write(str(i*m+j), font=("Times New Roman", 6))
     turtle.done()
                     
 def main():
