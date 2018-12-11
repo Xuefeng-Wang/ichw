@@ -17,7 +17,7 @@ def wcount(lines, topn=10):
     in reverse order, output the topn (word count), each in one line. 
     """
     lines = lines.lower()
-    for i in [',','.','!','?',':',';','/','—','"','(',')',"'s","'re","'ll","/r","/n","_"]:
+    for i in [',','.','!','?',':',';','/','—','"','(',')',"'s","'re","'ll","/r","/n","_","--"]:
         lines = lines.replace(i," ")
     words = lines.split()
     ct = collections.Counter(words)
