@@ -67,11 +67,10 @@ def tile(m, n, a, b, visited, alls=[], ans=[], x=0, y=0):
             else:
                 alls.append(ans)
     else:
-        if not paved(m, n, a, b, x, y, visited) and not paved(m, n, b, a, x, y, visited):
-            ans_1 = ans[:]
-            a_tile_1 = a_tile[:]
-            visited_1 = visited[:]
-
+        ans_1 = ans[:]
+        a_tile_1 = a_tile[:]
+        visited_1 = visited[:]
+        if not paved(m, n, a, b, x, y, visited):
             paving(m, a, b, x, y, visited, a_tile, ans)
             if 0 in visited:
                 p = visited.index(0)
@@ -79,6 +78,7 @@ def tile(m, n, a, b, visited, alls=[], ans=[], x=0, y=0):
             else:
                 alls.append(ans)
 
+        if not paved(m, n, b, a, x, y, visited_1):
             paving(m, b, a, x, y, visited_1, a_tile_1, ans_1)
             if 0 in visited_1:
                 q = visited_1.index(0)
@@ -86,21 +86,6 @@ def tile(m, n, a, b, visited, alls=[], ans=[], x=0, y=0):
             else:
                 alls.append(ans_1)
 
-        elif not paved(m, n, a, b, x, y, visited):
-            paving(m, a, b, x, y, visited, a_tile, ans)
-            if 0 in visited:
-                p = visited.index(0)
-                tile(m, n, a, b, visited, alls, ans, x = p//m, y = p%m)
-            else:
-                alls.append(ans)
-
-        elif not paved(m, n, b, a, x, y, visited):
-            paving(m, b, a, x, y, visited, a_tile, ans)
-            if 0 in visited:
-                p = visited.index(0)
-                tile(m, n, a, b, visited, alls, ans, x = p//m, y = p%m)
-            else:
-                alls.append(ans)
     return alls
 
 def visualization(m, n, subject):
